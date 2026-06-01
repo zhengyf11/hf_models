@@ -9,35 +9,19 @@ pip install -r requirements.txt
 
 ## 使用示例
 
-默认优先从国内镜像站 `https://hf-mirror.com` 下载：
+下载整个仓库并在完成后校验文件完整性：
 
 ```powershell
-python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro
+python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --all-files --verify
 ```
 
-也可以直接传 Hugging Face 官方 URL，脚本仍会默认优先使用镜像站下载：
+默认优先从国内镜像站 `https://hf-mirror.com` 下载。需要强制优先使用 Hugging Face 官方站时，指定 `--endpoint`：
 
 ```powershell
-python download_hf_weights.py --model=https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro
+python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --all-files --verify --endpoint https://huggingface.co
 ```
 
-需要强制优先使用 Hugging Face 官方站时，指定 `--endpoint`：
-
-```powershell
-python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --endpoint https://huggingface.co
-```
-
-默认只下载常见模型权重文件，例如 `*.safetensors`、`*.bin`、`*.gguf`、`*.pt`、`*.onnx` 以及分片索引文件。需要下载整个仓库时使用：
-
-```powershell
-python download_hf_weights.py --model=https://hf-mirror.com/deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --all-files
-```
-
-下载完成后校验文件完整性：
-
-```powershell
-python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --verify
-```
+默认只下载常见模型权重文件，例如 `*.safetensors`、`*.bin`、`*.gguf`、`*.pt`、`*.onnx` 以及分片索引文件；指定 `--all-files` 时会下载整个仓库。
 
 常用参数：
 
