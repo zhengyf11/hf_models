@@ -21,10 +21,9 @@ python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\D
 python download_hf_weights.py --model=deepseek-ai/DeepSeek-V4-Pro -o D:\models\DeepSeek-V4-Pro --all-files --verify --endpoint https://huggingface.co
 ```
 
-默认只下载常见模型权重文件，例如 `*.safetensors`、`*.bin`、`*.gguf`、`*.pt`、`*.onnx` 以及分片索引文件；指定 `--all-files` 时会下载整个仓库。
-
 常用参数：
 
+- `--all-files`：下载整个仓库；默认只下载常见模型权重文件，例如 `*.safetensors`、`*.bin`、`*.gguf`、`*.pt`、`*.onnx` 以及分片索引文件。
 - `--revision main`：指定分支、tag 或 commit。
 - `--endpoint https://huggingface.co`：覆盖首选下载站点；默认优先使用 `https://hf-mirror.com`。
 - `--include "*.json"`：额外下载匹配的文件，可重复使用。
