@@ -3,9 +3,41 @@
 
 ## 安装依赖
 
-```powershell
-pip install -r requirements.txt
+建议先创建虚拟环境，再安装项目依赖，避免把依赖安装到系统 Python 中。
+
+Linux/macOS：
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
+
+Windows PowerShell：
+
+```powershell
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+如果不想使用虚拟环境，也可以在已经由你自己管理的 Python 环境中执行：
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+### 常见安装问题
+
+如果安装依赖时遇到 `externally-managed-environment` 或 PEP 668 相关提示，说明当前系统 Python 由操作系统或包管理器托管，不建议直接执行全局 `pip install`。推荐按上面的步骤创建并激活虚拟环境后，再运行：
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+不要为了绕过该提示直接使用 `--break-system-packages`，除非你明确了解这会修改系统 Python 环境并可能影响系统工具。
 
 ## 使用示例
 
